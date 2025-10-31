@@ -1,0 +1,32 @@
+{
+  "title": "Krasnyy Laboratoriya",
+  "subtitle": "Açık Kaynak İstihbarat Aracı",
+  "description": "Bu uygulama, etik siber güvenlik testlerinde kullanılmak üzere geliştirilmiştir.",
+  "searchBtn": "Ara",
+  "searchPlaceholder": "hedef veya kullanıcı adı gir...",
+  "controls_export_pdf": "PDF Olarak Dışa Aktar",
+  "results_none": "Henüz sonuç yok",
+  "results_found": "sonuç bulundu",
+  "results_processing": "İşleniyor...",
+  "console_sending": ">> Dork analizi başlatılıyor: ",
+  "console_warn_no_input": "⚠ Lütfen bir hedef girin!",
+  "console_dorks_missing": "Dork listesi bulunamadı.",
+  "console_done": "✔ İşlem tamamlandı.",
+  "no_export_data": "Dışa aktarılacak veri yok.",
+  "sections": {
+    "google": "Google",
+    "bing": "Bing",
+    "yahoo": "Yahoo",
+    "duckduckgo": "DuckDuckGo",
+    "social": "Sosyal Medya",
+    "developer": "Geliştirici Siteleri",
+    "files": "Dosya Aramaları",
+    "people_search": "Kişi Aramaları",
+    "images": "Görseller",
+    "news": "Haberler",
+    "resume": "CV / Özgeçmiş",
+    "archives": "Arşivler",
+    "misc": "Diğer"
+
+  }
+}

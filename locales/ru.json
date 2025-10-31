@@ -1,0 +1,32 @@
+{
+  "title": "Krasnyy Laboratoriya",
+  "subtitle": "Инструмент открытой разведки",
+  "description": "Это приложение разработано для использования в этических тестах кибербезопасности.",
+  "searchBtn": "Поиск",
+  "searchPlaceholder": "введите цель или имя пользователя...",
+  "controls_export_pdf": "Экспорт в PDF",
+  "results_none": "Результатов пока нет",
+  "results_found": "результатов найдено",
+  "results_processing": "Обработка...",
+  "console_sending": ">> Запуск анализа dork: ",
+  "console_warn_no_input": "⚠ Введите цель!",
+  "console_dorks_missing": "Список dork не найден.",
+  "console_done": "✔ Готово.",
+  "no_export_data": "Нет данных для экспорта.",
+  "sections": {
+    "google": "Гугл",
+    "bing": "Бинг",
+    "yahoo": "Яху",
+    "duckduckgo": "ДакДакГо",
+    "social": "Социальные сети",
+    "developer": "Сайты разработчиков",
+    "files": "Файлы",
+    "people_search": "Поиск людей",
+    "images": "Изображения",
+    "news": "Новости",
+    "resume": "Резюме",
+    "archives": "Архивы",
+    "misc": "Прочее"
+
+  }
+}

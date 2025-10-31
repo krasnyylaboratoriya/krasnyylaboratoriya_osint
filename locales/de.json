@@ -1,0 +1,31 @@
+{
+  "title": "Krasnyy Laboratoriya",
+  "subtitle": "Open-Source-Intelligence-Werkzeug",
+  "description": "Diese Anwendung wurde für den Einsatz in ethischen Cybersicherheitstests entwickelt.",
+  "searchBtn": "Suchen",
+  "searchPlaceholder": "Ziel oder Benutzername eingeben...",
+  "controls_export_pdf": "Als PDF exportieren",
+  "results_none": "Noch keine Ergebnisse",
+  "results_found": "Ergebnisse gefunden",
+  "results_processing": "Wird verarbeitet...",
+  "console_sending": ">> Dork-Analyse wird gestartet: ",
+  "console_warn_no_input": "⚠ Bitte geben Sie ein Ziel ein!",
+  "console_dorks_missing": "Dork-Liste fehlt.",
+  "console_done": "✔ Fertig.",
+  "no_export_data": "Keine Daten zum Exportieren.",
+  "sections": {
+    "google": "Google",
+    "bing": "Bing",
+    "yahoo": "Yahoo",
+    "duckduckgo": "DuckDuckGo",
+    "social": "Soziale Medien",
+    "developer": "Entwicklerseiten",
+    "files": "Dateisuche",
+    "people_search": "Personensuche",
+    "images": "Bilder",
+    "news": "Nachrichten",
+    "resume": "Lebensläufe",
+    "archives": "Archive",
+    "misc": "Verschiedenes"
+  }
+}

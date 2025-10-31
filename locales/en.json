@@ -1,0 +1,32 @@
+{
+  "title": "Krasnyy Laboratoriya",
+  "subtitle": "Open Source Intelligence Tool",
+  "description": "This application is designed for use in ethical cybersecurity testing.",
+  "searchBtn": "Search",
+  "searchPlaceholder": "enter target or username...",
+  "controls_export_pdf": "Export as PDF",
+  "results_none": "No results yet",
+  "results_found": "results found",
+  "results_processing": "Processing...",
+  "console_sending": ">> Starting dork analysis: ",
+  "console_warn_no_input": "⚠ Please enter a target!",
+  "console_dorks_missing": "Dork list missing.",
+  "console_done": "✔ Done.",
+  "no_export_data": "No data to export.",
+  "sections": {
+    "google": "Google",
+    "bing": "Bing",
+    "yahoo": "Yahoo",
+    "duckduckgo": "DuckDuckGo",
+    "social": "Social Media",
+    "developer": "Developer Sites",
+    "files": "File Searches",
+    "people_search": "People Search",
+    "images": "Images",
+    "news": "News",
+    "resume": "Resumes",
+    "archives": "Archives",
+    "misc": "Miscellaneous"
+
+  }
+}

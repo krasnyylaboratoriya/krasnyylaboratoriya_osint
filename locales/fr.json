@@ -1,0 +1,32 @@
+{
+  "title": "Krasnyy Laboratoriya",
+  "subtitle": "Outil d’intelligence open source",
+  "description": "Cette application a été conçue pour des tests de cybersécurité éthiques.",
+  "searchBtn": "Rechercher",
+  "searchPlaceholder": "entrez une cible ou un nom d’utilisateur...",
+  "controls_export_pdf": "Exporter en PDF",
+  "results_none": "Aucun résultat pour l’instant",
+  "results_found": "résultats trouvés",
+  "results_processing": "Traitement en cours...",
+  "console_sending": ">> Démarrage de l’analyse dork : ",
+  "console_warn_no_input": "⚠ Veuillez entrer une cible !",
+  "console_dorks_missing": "Liste des dorks introuvable.",
+  "console_done": "✔ Terminé.",
+  "no_export_data": "Aucune donnée à exporter.",
+  "sections": {
+    "google": "Google",
+    "bing": "Bing",
+    "yahoo": "Yahoo",
+    "duckduckgo": "DuckDuckGo",
+    "social": "Réseaux sociaux",
+    "developer": "Sites développeurs",
+    "files": "Recherches de fichiers",
+    "people_search": "Recherche de personnes",
+    "images": "Images",
+    "news": "Actualités",
+    "resume": "CV",
+    "archives": "Archives",
+    "misc": "Divers"
+
+  }
+}
