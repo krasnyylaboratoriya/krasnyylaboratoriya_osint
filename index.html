@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Krasnyy Laboratoriya</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <rect width='100' height='100' fill='black'/>
+      <text x='50%' y='60%' font-size='70' text-anchor='middle' fill='red' font-family='monospace'>К</text>
+    </svg>">
+
+  <style>
+    :root {
+      --neon: #ff0000;
+      --bg: #000000;
+      --muted: rgba(255,0,0,0.15);
+    }
+
+    html, body {
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--neon);
+      font-family:"Share Tech Mono","Courier New",monospace;
+      overflow:hidden;
+    }
+
+    canvas#matrix {
+      position:fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      z-index:0;
+      background:var(--bg);
+      opacity:0.4;
+      pointer-events:none;
+    }
+
+    header {
+      position:relative;
+      text-align:center;
+      padding:20px;
+      border-bottom:1px solid var(--muted);
+      z-index:2;
+    }
+
+    h1 {
+      font-size:2.4rem;
+      margin:0;
+      color:var(--neon);
+      text-shadow:0 0 8px var(--neon),0 0 20px var(--neon);
+      animation:glitch 4s infinite;
+    }
+    @keyframes glitch {
+      0%,100% { text-shadow:0 0 6px var(--neon),2px 0 8px rgba(255,0,0,0.7);}
+      25% { text-shadow:-2px 0 8px rgba(255,0,0,0.8);}
+      50% { text-shadow:2px 0 8px rgba(255,0,0,0.7);}
+      75% { text-shadow:0 0 6px var(--neon);}
+    }
+
+    #language-switch {
+      position:absolute;
+      right:20px;
+      top:16px;
+      background:transparent;
+      color:var(--neon);
+      border:1px solid var(--neon);
+      padding:6px 10px;
+      border-radius:6px;
+      cursor:pointer;
+      z-index:3;
+    }
+
+    main {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:20px;
+      gap:16px;
+      z-index:2;
+      position:relative;
+    }
+
+    #subtitle, #description {
+      color:var(--neon);
+      text-shadow:0 0 8px var(--neon);
+    }
+
+    #description {
+      text-align:center;
+      max-width:900px;
+      opacity:0.9;
+      margin-bottom:12px;
+    }
+
+    .console {
+      display:flex;
+      align-items:center;
+      background:rgba(0,0,0,0.75);
+      border:1px solid var(--muted);
+      padding:14px;
+      border-radius:10px;
+      width:94%;
+      max-width:1200px;
+      box-shadow:0 0 25px rgba(255,0,0,0.1);
+      z-index:2;
+    }
+
+    input[type="text"] {
+      flex:1;
+      background:transparent;
+      border:none;
+      outline:none;
+      padding:8px 10px;
+      font-size:1rem;
+      caret-color:var(--neon);
+      font-family:"Share Tech Mono","Courier New",monospace;
+      color:var(--neon);
+    }
+    input::placeholder { color:rgba(255,0,0,0.4); }
+
+    button {
+      background:transparent;
+      border:1px solid var(--neon);
+      padding:8px 14px;
+      border-radius:8px;
+      margin-left:8px;
+      cursor:pointer;
+      font-weight:700;
+      font-family:"Share Tech Mono","Courier New",monospace;
+      transition:all 0.2s ease;
+      color:var(--neon);
+    }
+    button:hover {
+      background:var(--neon);
+      color:#000;
+      box-shadow:0 0 20px var(--neon),0 0 40px var(--neon);
+      transform:translateY(-1px);
+    }
+
+    .controls {
+      width:94%;
+      max-width:1200px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-top:8px;
+      z-index:2;
+    }
+
+    #export-pdf {
+      width:220px;
+      padding:10px 20px;
+      border:2px solid var(--neon);
+      border-radius:50px;
+      font-size:0.95rem;
+      font-weight:700;
+      background:transparent;
+      box-shadow:0 0 20px rgba(255,0,0,0.15);
+      transition:all 0.3s ease;
+      font-family:"Share Tech Mono","Courier New",monospace;
+      color:var(--neon);
+    }
+    #export-pdf:hover {
+      background:var(--neon);
+      color:#000;
+      box-shadow:0 0 30px var(--neon),0 0 60px var(--neon);
+      transform:scale(1.05);
+    }
+
+    #console-output {
+      width:94%;
+      max-width:1200px;
+      background:rgba(0,0,0,0.7);
+      border:1px solid var(--muted);
+      border-radius:10px;
+      padding:18px;
+      box-shadow:inset 0 0 15px rgba(255,0,0,0.1);
+      font-family:"Share Tech Mono","Courier New",monospace;
+      overflow:auto;
+      max-height:70vh;
+      color:var(--neon);
+    }
+
+    .section {
+      margin-bottom:14px;
+      padding-top:6px;
+      border-top:1px dashed rgba(255,0,0,0.1);
+    }
+    .section-header {
+      font-weight:700;
+      text-shadow:0 0 8px var(--neon);
+      margin-bottom:6px;
+      color:var(--neon);
+    }
+    .section-links {
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .section-links a {
+      display:block;
+      color:var(--neon);
+      text-decoration:none;
+      word-break:break-all;
+      padding:4px 0;
+      transition:background 0.2s;
+    }
+    .section-links a:hover {
+      background:rgba(255,0,0,0.1);
+      text-shadow:0 0 10px var(--neon);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <header>
+    <h1>Krasnyy Laboratoriya</h1>
+    <select id="language-switch">
+      <option value="tr">🇹🇷 TR</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="ru">🇷🇺 RU</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="fr">🇫🇷 FR</option>
+    </select>
+  </header>
+
+  <main>
+    <h2 id="subtitle"></h2>
+    <p id="description"></p>
+
+    <div class="console">
+      <span>root@krasnyy-lab:~$</span>
+      <input id="search-input" type="text" placeholder="" />
+      <button id="search-btn"></button>
+    </div>
+
+    <div class="controls">
+      <span class="muted" id="results-info"></span>
+      <button id="export-pdf"></button>
+    </div>
+
+    <div id="console-output"></div>
+  </main>
+
+  <script>
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const kiril = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЫЭЮЯ";
+    const fontSize = 18;
+    let columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+    function draw() {
+      ctx.fillStyle = "rgba(0,0,0,0.25)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(255,0,0,0.6)";
+      ctx.font = fontSize + "px monospace";
+      for (let i = 0; i < drops.length; i++) {
+        const text = kiril[Math.floor(Math.random() * kiril.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 60);
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      columns = Math.floor(canvas.width / fontSize);
+    });
+  </script>
+
+  <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+  <script>
+    const music = document.getElementById("bg-music");
+    music.volume = 0.7;
+    const tryPlay = () => music.play().catch(() => {});
+    document.addEventListener("DOMContentLoaded", tryPlay);
+    document.addEventListener("click", tryPlay);
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
